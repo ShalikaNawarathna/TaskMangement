@@ -1,0 +1,25 @@
+<div class="p-d-flex p-jc-center p-ai-center" style="height: 100vh">
+  <div *ngIf="task" class="card-container">
+    <div class="card">
+      <div class="card-header" style="text-align: center">
+        <h2>Task Information</h2>
+      </div>
+      <div class="card-body">
+        <p style="margin-bottom: 20px">
+          <strong>Title:</strong> {{ task.title }}
+        </p>
+        <p style="margin-bottom: 20px">
+          <strong>Description:</strong> {{ task.description }}
+        </p>
+        <p style="margin-bottom: 20px">
+          <strong>Due Date:</strong> {{ task.dueDate | date }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!task" class="no-task-container">
+    <p>No task found.</p>
+  </div>
+</div>
+

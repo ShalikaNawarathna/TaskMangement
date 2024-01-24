@@ -1,0 +1,58 @@
+<div class="p-d-flex p-jc-center p-ai-center" style="height: 100vh">
+  <div class="table-container">
+    <h2 style="display: flex; align-items: center">Task Management</h2>
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="margin-bottom: 20px"
+      (click)="createTask()"
+    >
+      Create Task
+    </button>
+    <p-table
+      [columns]="cols"
+      class="custom-table"
+      [value]="tasks"
+      [rows]="7"
+      [paginator]="true"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [style.width.px]="col.width">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template
+        pTemplate="body"
+        let-tasks
+        let-columns="columns"
+        let-i="rowIndex"
+      >
+        <tr>
+          <td>{{ 1 + i }}</td>
+          <td>{{ tasks.title }}</td>
+          <td style="text-align: center">
+            <button
+              (click)="viewTask(tasks.title)"
+              class="btn btn-success"
+              style="margin-left: 20px"
+            >
+              View
+            </button>
+          </td>
+          <td style="text-align: center">
+            <button (click)="updateTask(tasks.title)" class="btn btn-warning">
+              Update
+            </button>
+            <button (click)="deleteTask(tasks.title)" class="btn btn-danger">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+
+</div>
